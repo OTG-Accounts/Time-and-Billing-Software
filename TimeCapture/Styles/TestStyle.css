@@ -1,0 +1,26 @@
+﻿.lock-button {
+	background: #B9DFFF;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+}
+
+	.lock-button:hover {
+		background: #016ABC;
+		color: #fff;
+		border: 1px solid #eee;
+		border-radius: 20px;
+		box-shadow: 5px 5px 5px #eee;
+		text-shadow: none;
+	}
+
+.test {
+	padding: 5px 5px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}

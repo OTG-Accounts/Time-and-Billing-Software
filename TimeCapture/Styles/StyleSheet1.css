@@ -1,0 +1,485 @@
+﻿#html
+{
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+#mainform
+{
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+#body
+{
+    font-family:"Segoe UI",Verdana,Helvetica,Sans-Serif;
+    font-size:12px;
+    margin:0;
+    border:0;
+    height:100%;
+    max-height:100%;
+    background:#666;
+    color:#323232;
+    background:#000;
+    
+    
+}
+#content
+{
+    position:absolute;
+    min-height:100%;
+    left:50%;
+    top:0px;
+    width:1400px;
+    margin-left:-700px;
+    background:#fff;
+    box-shadow:0 0 85px rgba(0,0,0,.3)
+}
+#header
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:1400px;
+    background:#3C454F;
+    height:55px;
+}
+#header_left
+{
+    position:absolute;
+    left:0px;
+    top:0px;
+    margin-left:45px;
+    margin-top:7px;
+}
+#header_right
+{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+#footer
+{
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    bottom:0px;
+    left: 0px;
+    text-align: center;
+    background:url(../images/fxshell.drawer-controlbar-bkg.jpg) 0 0 repeat-x;
+    height: 59px;
+}
+#navigation_background
+{
+    background:#AA231C;
+    position:absolute;
+    left:0px;
+    top:55px;
+    bottom:59px;
+    width:200px;
+}
+#content_background
+{
+    background:#FFFFFF;
+    position:absolute;
+    right:0px;
+    top:55px;
+    bottom:59px;
+    width:1200px;
+}
+#mainbody
+{
+    position:absolute;
+    left:0px;
+    top:55px;
+    bottom:0px;
+    width:100%;
+    
+}
+#tab_1
+{
+    position:absolute;
+    background:#FFFFFF;
+    left:-56px;
+    top:-55px;
+    bottom:56px;
+    width:1200px;
+}
+.config_tabs {
+  position: relative;   
+  min-height: 400px; /* This part sucks */
+  clear: both;
+  height:100%;
+}
+.config_tab {
+  float: left;
+}
+.config_tab label {
+  background: #fff; 
+  padding: 10px; 
+  border: none;
+  font-weight:normal; 
+  margin-left: -1px; 
+  position: relative;
+  left: 1px; 
+}
+.config_tab [type=radio] {
+  display: none;   
+}
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: none; 
+}
+[type=radio]:checked ~ label {
+  background: white;
+  font-weight:bold;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+.tabs .ajax__tab_body
+{
+    background-color:#FFFFFF;
+    border:0px;
+    display:block;
+}
+.tabs .ajax__tab_active .ajax__tab_tab
+{
+    height:50px;
+    width:200px;
+    background-color:#FFFFFF;
+    display:block;
+    color:#FFFFFF
+}
+.tabs .ajax__tab_header
+{
+    font-family:Segoe UI;
+    font-size:12px;
+    background-color:#FFFFFF;
+    display:block;
+}
+.tabs .ajax__tab_tab
+{
+    height:50px;
+    width:200px;
+    display:block;
+    background-color:#AA231C;
+    color:#AA231C;
+ 
+}
+#header_username
+{
+    position:absolute;
+    top:14px;
+    right:15px;
+    direction:rtl;
+    width:350px;
+    height:20px;
+    padding:0px;
+    border:0px;
+    font-family:'Segoe UI';
+    font-size:14px;
+    color:#FFFFFF;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+#header_config
+{
+    position:absolute;
+    top:30px;
+    right:22px;
+    direction:rtl;
+    width:350px;
+    font-family:'Segoe UI';
+    font-size:medium;
+    padding:0 0 0 0;
+    margin:0 0 0 0;
+    
+}
+.tab_header
+{
+    position:absolute; 
+    right:0px;
+    top:0px;
+    width:1175px;
+    height:50px;
+}
+.tab_headerleft
+{
+    position:absolute;
+    left:50%;
+    top:0px;
+    width:1175px;
+    margin-left:-587px;
+    margin-top:10px;
+    text-align:left;
+}
+.tab_headerright
+{
+    position:absolute;
+    right:0px;
+    top:0px;
+    margin-top:10px;
+    text-align:right;
+}
+.tab_body
+{
+    position:absolute;
+    width:1175px;
+    top:50px;
+    right:0px;
+    bottom:59px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    font-family:'Segoe UI';
+}
+.tab2_body
+{
+    position:absolute;
+    width:1175px;
+    top:50px;
+    right:0px;
+    bottom:59px;
+    overflow-y:hidden;
+    overflow-x:hidden;
+    font-family:'Segoe UI';
+    background-color:#FFFFFF;
+}
+.tab_footer
+{
+    position:absolute;
+    width: 1400px;
+    right:0px;
+    bottom:0px;
+    text-align: center;
+    background:url(../images/fxshell.drawer-controlbar-bkg.jpg) 0 0 repeat-x;
+    height: 59px;
+    
+}
+.tab_footercenter
+{
+    position:absolute;
+    left:50%;
+    bottom:0px;
+    width:1400px;
+    margin-left:-700px;
+    text-align:center;
+    height:52px;
+    
+}
+.tab_footerright
+{
+    position:absolute;
+    right:20px;
+    bottom:0px;
+    height:40px;
+    text-align:right;
+}
+.textboxgrid
+{
+    padding-left:5px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#AAAAAA;
+    font-family:'Segoe UI';
+    font-size:12px;
+}
+.labelgrid
+{
+    font-family:'Segoe UI';
+    font-size:12px;
+}
+.checkboxgrid
+{
+    background-repeat: no-repeat; 
+    /* stack two background images to creat the grey border and white fill */ 
+    background-image: linear-gradient(white, white), linear-gradient(rgb(204,204,204), rgb(204,204,204)); 
+}
+.button_header
+{
+    background:#3C454F;
+    border-style:solid;
+    border-width:1px;
+    border-color:#3C454F;
+    font-family:'Segoe UI';
+    color:#FFFFFF;
+    font-size:10px;
+    
+    
+}
+    .button_header:hover
+    {
+        color:#AA231C
+    }
+.GridLayout
+{
+    position: relative;
+    width: 100%;
+    font-family:'Segoe UI';
+    font-size:14px;
+    border:none;
+    border-style:none;
+}
+.labelgeneric:hover
+{
+    cursor:default;
+    color:#AA231C;
+}
+.FilterPanel
+{
+    
+    width:1140px;
+    height:30px;
+    border-bottom:solid;
+    border-width:1px;
+    border-color:#CCCCCC;
+    min-height:30px;
+    max-height:30px;
+    padding-left:10px;
+    font-family:'Segoe UI';
+    font-size:12px;
+    overflow:hidden;
+    vertical-align:middle;
+    padding-bottom:15px;
+    padding-top:15px;
+    
+}
+#ProgressBackground
+{
+    position:absolute;
+    top:0px;
+    right:0px;
+    left:0px;
+    bottom:59px;
+    filter:alpha(opacity=30);
+    opacity:0.5;
+    background:#DDDDDD;
+    
+}
+#Progress
+{
+    position:absolute;
+    right:0px;
+    top:55px;
+    width:1200px;
+    bottom:59px;
+    padding-left:50%;
+    padding-top:50%;
+
+}
+#tab2_BodyTop
+{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:400px;
+    
+}
+#tab2_BodyTopLeft
+{
+    position:absolute;
+    top:20px;
+    left:350px;
+    width:200px;
+    
+    
+}
+#tab2_BodyTopMiddle
+{
+    position:absolute;
+    top:20px;
+    left:550px;
+    width:50px;
+    
+    
+    padding-top:80px;
+    padding-left:10px;
+}
+#tab2_BodyTopRight
+{
+    position:absolute;
+    top:20px;
+    left:600px;
+    width:200px;
+    
+    
+}
+#tab2_BodyBottom
+{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:400px;
+    
+    
+}
+#pnlUserDetailsHeader
+{
+    width:1000px;
+    font-family:Segoe UI;
+    Font-Size:14px;
+    Height:30px;
+    border-bottom-color:#DDDDDD;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    background:green;
+    
+    
+}
+.modalBackground
+{
+    background-color: #333333;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+.modalPopup
+{
+    background-color: #FFFFFF;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    padding: 1px;
+    width: 350px;
+    Height: auto;
+    
+}
+
+
+#ChangePasswordHeader
+{
+    background-color:#3C454F;
+    font-family:'Segoe UI';
+    font-size:16px;
+    color:#FFFFFF;
+    text-align:center;
+    padding-top:5px;
+    height:30px;
+    margin-bottom:20px;
+}
+#ChangePasswordBody
+{
+    direction:ltr;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:20px;
+    margin-right:20px;
+    
+
+}
+#ChangePasswordFooter
+{
+    direction:ltr;
+    text-align:center;
+    margin-bottom:20px;
+}
+

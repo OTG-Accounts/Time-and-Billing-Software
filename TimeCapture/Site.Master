@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TimeCapture.Site" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="AjaxASP" %>
+<%@ Register Assembly="BulkEditGridView" Namespace="BulkEditGridView" TagPrefix="MyAsp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="./Styles/MenuStyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="./Styles/StyleSheet2.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+        <asp:UpdatePanel ID="UpdatePanel" runat="server">
+            <ContentTemplate>
+                <div id="content">     
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>            
+                    <div id="header">
+                        <div id="header_left">
+                            <img src="./Images/logo.bmp" />
+                        </div>
+                        <div id="header_middle">
+                            <ul id="menu">
+                                <li><a href="Home.aspx">Home</a></li>  
+                                <li><a href="#" class="drop">Timesheets</a>
+                                    <div class="dropdown_1column">
+                                        <div class="col_1">
+                                            <ul class="simple">
+                                                <li><a href="TimeCapture.aspx">Time Capture</a></li>
+                                                <li><a href="PeerReview.aspx">Peer Review</a></li>
+                                                <li><a href="TimeStatistics.aspx">Time Statistics</a></li>
+                                                <%if (UserGroup == "managers" || UserGroup == "administrators"){  %>
+                                                    <li><a href="TimeReview.aspx">Time Review</a></li>
+                                                <%} %>
+                                            </ul>   
+                                        </div>
+		                            </div>
+                                </li>  
+                                <%if (UserGroup == "managers" || UserGroup == "administrators"){  %>
+                                <li><a href="#" class="drop">Accounting</a>
+	                                <div class="dropdown_1column">
+                                        <div class="col_1">
+                                            <ul class="simple">
+                                                <li><a href="PeriodReview.aspx">Periods review</a></li>
+                                                <%if (UserGroup == "administrators"){  %>
+                                                <li><a href="Exports.aspx">Exports</a></li>
+                                                <li><a href="Reporting.aspx">Reporting</a></li>
+                                                <li><a href="Invoices.aspx">Invoices</a></li>
+                                                <%} %>
+                                            </ul>   
+                                        </div>
+		                            </div>
+	                            </li>
+                                <%} %>
+                                <%if (UserGroup == "managers" || UserGroup == "administrators"){  %>
+                                <li><a href="#" class="drop">Licensing</a>
+	                                <div class="dropdown_1column">
+                                        <div class="col_1">
+                                            <ul class="simple">
+                                                <li><a href="VMUnits.aspx">VM Units</a></li>
+                                                <li><a href="UserLicenses.aspx">User Changes</a></li>
+                                                <li><a href="Licenses.aspx">Software</a></li>
+                                            </ul>   
+                                        </div>
+		                            </div>
+	                            </li>
+                                <%} %>
+                                <li><a href="#" class="drop">Configuration</a>
+		                            <div class="dropdown_1column">
+                                        <div class="col_1">
+                                            <ul class="simple">
+                                                <%if (UserGroup == "administrators" || UserGroup == "managers"){  %>
+                                                <li><a href="Users.aspx">Users</a></li>
+                                                <%} %>
+                                                <li><a href="Companies.aspx">Companies</a></li>
+                                            </ul>   
+                                        </div>
+                                    </div>
+	                            </li>
+                                <li><a href="#" class="drop">Projects</a>
+		                            <div class="dropdown_1column">
+                                        <div class="col_1">
+                                            <ul class="simple">
+                                                <li><a href="ProjectManagement.aspx">Management</a></li>
+                                                <li><a href="">Reporting</a></li>
+                                            </ul>   
+                                        </div>
+                                    </div>
+	                            </li>
+                                
+                            </ul>
+                        </div>
+                        <div id="header_right">
+                            <div id="header_username">
+                                <asp:Panel ID="pnlConfigHeader" runat="server">
+                                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/layout-arrow-dn.png" />
+                                    <asp:Label ID="lblUsername" runat="server" Text="User Unknown" CssClass="labelgeneric"  />
+                                </asp:Panel>
+                                <AjaxASP:CollapsiblePanelExtender ID="CollapsiblePanelExtender2" runat="server" CollapsedImage="~/Images/layout-arrow-dn.png" 
+                                    ExpandedImage="~/Images/layout-arrow-up.png" ImageControlID="Image2" TargetControlID="pnlConfigBody" Collapsed="true" 
+                                    CollapseControlID="pnlConfigHeader" ExpandControlID="pnlConfigHeader" >
+                                </AjaxASP:CollapsiblePanelExtender>
+                            </div>
+                            <div id="header_config">
+                                <asp:Panel ID="pnlConfigBody" runat="server" BackColor="#3C454F">
+                                    <asp:Button ID="btnLogout" runat="server" Text="SIGN OUT" CssClass="button_header" CausesValidation="false" OnClick="btnLogout_Click" />
+                                    <asp:Button ID="btnPassChange" runat="server" Text="CHANGE PASSWORD" CssClass="button_header" CausesValidation="false" OnClick="btnPassChange_Click" />
+                                    <div id="Main_ChangePassword">
+                                        <input id="dummy" type="button" style="display: none" runat="server" />
+                                        <AjaxASP:ModalPopupExtender ID="mpeChangePassword" runat="server" PopupControlID="pnlChangePassword" TargetControlID="dummy" BackgroundCssClass="modalBackground" />
+                                        <asp:Panel ID="pnlChangePassword" runat="server" CssClass="modalPopup">
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                <ContentTemplate>
+                                                    <div id="ChangePasswordHeader">
+                                                        <asp:Label ID="Label24" runat="server" Text="CHANGE PASSWORD" />
+                                                    </div>
+                                                    <div id="ChangePasswordBody">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td style="width:50%">
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbNewPassword" ErrorMessage="New password is required." Font-Names="Segoe UI" Font-Size="14px" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                                                    <asp:Label ID="Label25" runat="server" Text="New Password" CssClass="labelgrid" />
+                                                                </td>
+                                                                <td style="width:50%">
+                                                                    <asp:TextBox ID="tbNewPassword" runat="server" CssClass="textboxgrid" TextMode="Password" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width:50%">
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbConfirmPassword" ErrorMessage="Confirm password is required." Font-Names="Segoe UI" Font-Size="14px" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                                                    <asp:Label ID="Label26" runat="server" Text="Confirm Password" CssClass="labelgrid" />
+                                                                </td>
+                                                                <td style="width:50%">
+                                                                    <asp:TextBox ID="tbConfirmPassword" runat="server" CssClass="textboxgrid" TextMode="Password" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div id="ChangePasswordFooter">
+                                                        <asp:Button ID="btnChangePasswordCancel" runat="server" Text="Cancel" CssClass="button_header" Width="50px" Height="20px"  CausesValidation="false" OnClick="btnChangePasswordCancel_Click" />
+                                                        <asp:Button ID="btnChangePassword" runat="server" Text="OK" CssClass="button_header" Width="50px" Height="20px" OnClick="btnChangePassword_Click" />
+                                                        <br />
+                                                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Error" Font-Names="Segoe UI" Font-Size="12px" ForeColor="Red" />
+                                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="The passwords do not match!" ControlToValidate="tbConfirmPassword" ControlToCompare="tbNewPassword" Font-Names="Segoe UI" Font-Size="12px" ForeColor="Red"></asp:CompareValidator>
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </asp:Panel>
+                                    </div>
+                                    
+                                </asp:Panel>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+</body>
+</html>
